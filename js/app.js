@@ -1,4 +1,4 @@
-import {NavBar} from './navbar.js';
+import {NavBar} from './componentes/navbar.js';
 import {Router} from './router.js';
 class App {
     constructor() {

@@ -1,5 +1,5 @@
-import {Home} from './home.js';
-import {Contato} from './contato.js';
+import {Home} from './paginas/home.js';
+import {Contato} from './paginas/contato.js';
 export class Router {
     constructor() {
         this.rotas = {
