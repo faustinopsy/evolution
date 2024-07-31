@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+import {carregaNav} from './navbar.js';
+
 function carregaHome() {
     return `
         <div style="background-color: rgb(135, 218, 20);">
@@ -27,17 +28,21 @@ function navegar() {
     }
 }
 
-document.getElementById('home-link').addEventListener('click', () => {
-    window.location.hash = '#home';
-    navegar();
-});
+function carregaEventos(){
+    document.getElementById('home-link').addEventListener('click', () => {
+        window.location.hash = '#home';
+        navegar();
+    });
+    
+    document.getElementById('contato-link').addEventListener('click', () => {
+        window.location.hash = '#contact';
+        navegar();
+    });
+}
 
-document.getElementById('contato-link').addEventListener('click', () => {
-    window.location.hash = '#contact';
-    navegar();
-});
-
+carregaNav()
+carregaEventos()
 
 window.addEventListener('load', navegar);
 window.addEventListener('hashchange', navegar);
-})
+
