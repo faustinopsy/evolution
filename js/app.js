@@ -1,21 +1,6 @@
 import {carregaNav} from './navbar.js';
-
-function carregaHome() {
-    return `
-        <div style="background-color: rgb(135, 218, 20);">
-            <h1>Página inicial!</h1>
-        </div>
-    `;
-}
-
-function carregaContato() {
-    return `
-    <div style="background-color: chocolate;">
-        <h1>Página contato</h1>
-    </div>
-        
-    `;
-}
+import {carregaHome} from './home.js'
+import {carregaContato} from './contato.js'
 
 function navegar() {
     const divConteudo = document.getElementById('conteudo');
