@@ -1,48 +1,26 @@
-import {carregaNav} from './navbar.js';
+import {NavBar} from './navbar.js';
+import {Router} from './router.js';
+class App {
+    constructor() {
+        this.nav = new NavBar();
+        this.router = new Router();
+        this.iniciar();
+    }
 
-function carregaHome() {
-    return `
-        <div style="background-color: rgb(135, 218, 20);">
-            <h1>Página inicial!</h1>
-        </div>
-    `;
-}
+    iniciar() {
+        this.nav.carregar()
+        document.getElementById('home-link').addEventListener('click', () => {
+            window.location.hash = '#home';
+            this.router.navegar();
+        });
 
-function carregaContato() {
-    return `
-    <div style="background-color: chocolate;">
-        <h1>Página contato</h1>
-    </div>
-        
-    `;
-}
+        document.getElementById('contato-link').addEventListener('click', () => {
+            window.location.hash = '#contato';
+            this.router.navegar();
+        });
 
-function navegar() {
-    const divConteudo = document.getElementById('conteudo');
-    const hash = window.location.hash;
-
-    if (hash === '#contato') {
-        divConteudo.innerHTML = carregaContato();
-    } else {
-        divConteudo.innerHTML = carregaHome();
+        this.router.navegar();
     }
 }
 
-function carregaEventos(){
-    document.getElementById('home-link').addEventListener('click', () => {
-        window.location.hash = '#home';
-        navegar();
-    });
-    
-    document.getElementById('contato-link').addEventListener('click', () => {
-        window.location.hash = '#contact';
-        navegar();
-    });
-}
-
-carregaNav()
-carregaEventos()
-
-window.addEventListener('load', navegar);
-window.addEventListener('hashchange', navegar);
-
+const app = new App();
